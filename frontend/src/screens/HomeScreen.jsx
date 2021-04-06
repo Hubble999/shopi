@@ -8,7 +8,7 @@ const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('/products').then((res) => {
+    axios.get('/api/products').then((res) => {
       setProducts(res.data);
     });
   }, []);

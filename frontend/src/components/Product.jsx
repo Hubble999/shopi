@@ -8,11 +8,9 @@ const Product = ({ product }) => {
   const { name, image, brand, price, rating, _id } = product;
   return (
     <Card className='my-3 rounded'>
-      <LinkContainer to={`/product/${_id}`} style={{ padding: '0px' }}>
-        <Link>
-          <Card.Img variant='top' src={image} />
-        </Link>
-      </LinkContainer>
+      <Link to={`/product/${_id}`} style={{ padding: '0px' }}>
+        <Card.Img variant='top' src={image} />
+      </Link>
       <Card.Body>
         <Card.Title>
           <strong>{name}</strong>

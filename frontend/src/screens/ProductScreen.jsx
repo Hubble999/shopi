@@ -8,10 +8,10 @@ import axios from 'axios';
 const ProductScreen = ({ match }) => {
   const [product, setProduct] = useState(null);
   useEffect(() => {
-    axios.get(`/products/${match.params.id}`).then((res) => {
+    axios.get(`/api/products/${match.params.id}`).then((res) => {
       setProduct(res.data);
     });
-  }, []);
+  }, [match]);
 
   return (
     product && (
