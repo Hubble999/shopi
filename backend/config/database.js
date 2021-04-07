@@ -12,4 +12,4 @@ const connectDB = async () => {
     console.log(err.message);
   }
 };
-export default connectDB;``
+export default connectDB;
