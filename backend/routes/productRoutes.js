@@ -1,5 +1,4 @@
 import express from 'express';
-import Product from '../models/productModel.js';
 import {
   getProducts,
   getProductById,
