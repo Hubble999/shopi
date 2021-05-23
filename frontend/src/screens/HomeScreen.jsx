@@ -7,18 +7,19 @@ import Product from '../components/Product';
 import Loader from '../components/Loader';
 import Warning from '../components/Warning';
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+  const keyword = match.params.keyword;
   const dispatch = useDispatch();
   const { error, loading, data } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(actionProductList());
+    dispatch(actionProductList(keyword));
   }, []);
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
   if (error) {
-    return <Warning error={error} />
+    return <Warning error={error} />;
   }
   return (
     <>
@@ -26,7 +27,7 @@ const HomeScreen = () => {
       <Row>
         {data.map((prod) => {
           return (
-            <Col sm={12} lg={4} xl={3} md={6}>
+            <Col key={prod._id} sm={12} lg={4} xl={3} md={6}>
               <Product product={prod} />
             </Col>
           );
