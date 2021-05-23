@@ -13,9 +13,9 @@ export default (id, amount) => (dispatch, getState) => {
           countInStock,
           image,
           price,
-          amount,
-        },
-      },
+          amount
+        }
+      }
     });
     const { cartItems } = getState().cart;
     localStorage.setItem('cartItems', JSON.stringify(cartItems));

@@ -6,7 +6,7 @@ export default (state = { cartItems: [] }, action) => {
       const isExistItem = cartItems.some((p) => p.id === item.id);
       if (isExistItem) {
         return {
-          cartItems: cartItems.map((p) => (p.id === item.id ? item : p)),
+          cartItems: cartItems.map((p) => (p.id === item.id ? item : p))
         };
       }
       return { cartItems: [...cartItems, item] };

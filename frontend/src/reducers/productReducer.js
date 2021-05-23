@@ -1,7 +1,4 @@
-export default (
-  state = { data: null, loading: false, error: null },
-  action,
-) => {
+export default (state = { data: null, loading: false, error: null }, action) => {
   switch (action.type) {
     case 'PRODUCT_DETAILS_REQUEST': {
       return { ...state, loading: true };

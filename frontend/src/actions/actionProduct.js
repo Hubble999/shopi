@@ -8,14 +8,14 @@ export default (id) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: 'PRODUCT_DETAILS_SUCCESS',
-        payload: { data: res.data },
+        payload: { data: res.data }
       });
     })
     .catch((err) => {
       console.log(err.message);
       dispatch({
         type: 'PRODUCT_DETAILS_FAILURE',
-        payload: { error: err.message },
+        payload: { error: err.message }
       });
     });
 };

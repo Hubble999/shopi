@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Col,
-  Row,
-  ListGroup,
-  Image,
-  Button,
-  Form,
-  Card,
-} from 'react-bootstrap';
+import { Col, Row, ListGroup, Image, Button, Form, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,9 +12,7 @@ const CartScreen = ({ location, match }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (id) {
-      const amount = location.search
-        ? Number(location.search.split('=')[1])
-        : 1;
+      const amount = location.search ? Number(location.search.split('=')[1]) : 1;
       dispatch(addCart(id, amount));
     }
   }, [dispatch, id]);
@@ -38,10 +28,10 @@ const CartScreen = ({ location, match }) => {
         {cartItems.length === 0 ? (
           <>
             <h3>Your cart is empty</h3>
-            <Link to='/'>Go Back</Link>
+            <Link to="/">Go Back</Link>
           </>
         ) : (
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             {cartItems.map((item) => (
               <ListGroup.Item key={item.id}>
                 <Row>
@@ -54,12 +44,9 @@ const CartScreen = ({ location, match }) => {
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>
                     <Form.Control
-                      as='select'
+                      as="select"
                       value={item.amount}
-                      onChange={(e) =>
-                        dispatch(addCart(item.id, Number(e.target.value)))
-                      }
-                    >
+                      onChange={(e) => dispatch(addCart(item.id, Number(e.target.value)))}>
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -68,12 +55,8 @@ const CartScreen = ({ location, match }) => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button
-                      type='button'
-                      variant='light'
-                      onClick={handleRemoveItem(item.id)}
-                    >
-                      <i className='fas fa-trash'></i>
+                    <Button type="button" variant="light" onClick={handleRemoveItem(item.id)}>
+                      <i className="fas fa-trash"></i>
                     </Button>
                   </Col>
                 </Row>
@@ -84,23 +67,13 @@ const CartScreen = ({ location, match }) => {
       </Col>
       <Col md={4}>
         <Card>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>
-                Subtotal (
-                {cartItems.reduce((acc, item) => acc + item.amount, 0)}) items
-              </h2>
-              $
-              {cartItems
-                .reduce((acc, item) => acc + item.amount * item.price, 0)
-                .toFixed(2)}
+              <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.amount, 0)}) items</h2>$
+              {cartItems.reduce((acc, item) => acc + item.amount * item.price, 0).toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item>
-              <Button
-                type='button'
-                className='btn-block'
-                disabled={cartItems.length === 0}
-              >
+              <Button type="button" className="btn-block" disabled={cartItems.length === 0}>
                 Payment
               </Button>
             </ListGroup.Item>

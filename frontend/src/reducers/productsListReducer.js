@@ -1,7 +1,4 @@
-export default (
-  state = { data: [], loading: false, error: null },
-  action,
-) => {
+export default (state = { data: [], loading: false, error: null }, action) => {
   switch (action.type) {
     case 'PRODUCTS_LIST_REQUEST': {
       return { ...state, loading: true };
