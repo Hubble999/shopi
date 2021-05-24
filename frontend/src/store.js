@@ -5,13 +5,15 @@ import productsListReducer from './reducers/productsListReducer';
 import productReducer from './reducers/productReducer';
 import cartReducer from './reducers/cartReducer';
 import { userLoginReducer, userRegisterReducer } from './reducers/userReducer';
+import productTopReducer from './reducers/productTopReducer';
 
 const reducer = combineReducers({
   products: productsListReducer,
   productDetails: productReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
-  userRegister: userRegisterReducer
+  userRegister: userRegisterReducer,
+  productTop: productTopReducer
 });
 
 const initialCartState = localStorage.getItem('cartItems')
