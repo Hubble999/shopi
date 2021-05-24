@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { ADD_CART } from '../constants/cartConstants';
 
 export default (id, amount) => (dispatch, getState) => {
   axios.get(`/api/products/${id}`).then((res) => {
     const { data } = res;
     const { _id, name, countInStock, image, price } = data;
     dispatch({
-      type: 'ADD_CART',
+      type: ADD_CART,
       payload: {
         item: {
           id: _id,
