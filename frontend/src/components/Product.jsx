@@ -12,12 +12,14 @@ const Product = ({ product }) => {
         <Card.Img variant="top" src={image} />
       </Link>
       <Card.Body>
-        <Card.Title>
-          <strong>{name}</strong>
-        </Card.Title>
+        <Link to={`/product/${_id}`}>
+          <Card.Title>
+            <strong>{name}</strong>
+          </Card.Title>
+        </Link>
         <Card.Text>{brand}</Card.Text>
         <Rating value={rating} />
-        <LinkContainer to="/product">
+        <LinkContainer to={`/product/${_id}`}>
           <Button className="my-2">${price}</Button>
         </LinkContainer>
       </Card.Body>
