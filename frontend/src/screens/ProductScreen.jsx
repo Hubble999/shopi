@@ -20,13 +20,11 @@ const ProductScreen = ({ history, match }) => {
     history.push(`/cart/${match.params.id}?amount=${amount}`);
   };
 
-  if (loading) {
-    return <Loader />;
-  }
-  if (error) {
-    return <Warning error={error} />;
-  }
-  return (
+  return loading ? (
+    <Loader />
+  ) : error ? (
+    <Warning error={error} />
+  ) : (
     data && (
       <>
         <Link className="btn btn-light my-3" to="/">

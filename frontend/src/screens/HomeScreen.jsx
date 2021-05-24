@@ -1,11 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import actionProductList from '../actions/actionProductList.js';
 import Product from '../components/Product';
 import Loader from '../components/Loader';
 import Warning from '../components/Warning';
+import Carousel from '../components/CarouselProduct';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -15,24 +17,32 @@ const HomeScreen = ({ match }) => {
   useEffect(() => {
     dispatch(actionProductList(keyword));
   }, []);
-  if (loading) {
-    return <Loader />;
-  }
-  if (error) {
-    return <Warning error={error} />;
-  }
+
   return (
     <>
-      <h1>Latest products</h1>
-      <Row>
-        {data.map((prod) => {
-          return (
-            <Col key={prod._id} sm={12} lg={4} xl={3} md={6}>
-              <Product product={prod} />
-            </Col>
-          );
-        })}
-      </Row>
+      {!keyword ? (
+        <Carousel />
+      ) : (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Warning error={error}></Warning>
+      ) : (
+        <>
+          <h1>Latest Products</h1>
+          <Row>
+            {data.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
     </>
   );
 };
