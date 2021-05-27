@@ -33,7 +33,7 @@ npm run dev
 npm run server
 ```
 
-##Seed Database
+## Seed Database
 
 ```bash
 # Import data
