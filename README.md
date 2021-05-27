@@ -32,3 +32,21 @@ npm run dev
 # Run backend only
 npm run server
 ```
+
+##Seed Database
+
+```bash
+# Import data
+npm run data:import
+
+# Destroy data
+npm run data:destroy
+```
+
+```bash
+Sample User Login
+
+john@example.com (Customer)
+123456
+```
+
