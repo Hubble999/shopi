@@ -47,7 +47,7 @@ npm run data:destroy
 ```bash
 Sample User Login
 
-john@example.com (Customer)
+john@example.com
 123456
 ```
 
