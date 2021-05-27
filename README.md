@@ -34,6 +34,7 @@ npm run server
 ```
 
 ## Seed Database
+You can use the following commands to seed the database with some sample users and products as well as destroy all data
 
 ```bash
 # Import data
