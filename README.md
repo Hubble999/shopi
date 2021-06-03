@@ -1,8 +1,8 @@
 # Built with React, Redux, Node, Express & MongoDB
 
-# [Посмотреть](https://proshop999.herokuapp.com/product/60a53657abb44309648621d6)
+## [Посмотреть](https://proshop999.herokuapp.com/product/60a53657abb44309648621d6)
 
-## Example: 
+### Example: 
 ![Example](/upload/example2.gif)
 
 
